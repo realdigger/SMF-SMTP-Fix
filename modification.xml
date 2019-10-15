@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+
+	<file name="$sourcedir/Subs-Post.php">
+
+		<operation>
+
+			<search position="replace"><![CDATA[		if (server_parse('EHLO ' . $modSettings['smtp_host'], $socket, null) == '250')]]></search>
+
+			<add><![CDATA[		global $boardurl;
+		if (server_parse('EHLO ' . parse_url($boardurl, PHP_URL_HOST), $socket, null) == '250')]]></add>
+
+		</operation>
+
+	</file>
+
+</modification>
